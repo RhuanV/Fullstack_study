@@ -2,8 +2,11 @@ const express = require('express')
 const app = express()
 const cors = require('cors')
 
-app.use(express.static('build'))
+//cors: permitir requisições de outras fontes
 app.use(cors())
+
+//static: verifica se o build tem um arquivo correspondente a requisição
+app.use(express.static('build'))
 app.use(express.json())
 let notes = [
   {
