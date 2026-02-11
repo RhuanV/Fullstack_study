@@ -4,17 +4,25 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint .",
     "dev": "nodemon index.js",
     "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:ui": "rm -rf build && cd ../frontend && npm run build && cp -r build ../backend",
+    "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push"
   },
   "author": "Matti Luukkainen",
   "license": "MIT",
   "devDependencies": {
+    "@eslint/js": "^9.39.2",
+    "eslint": "^9.39.2",
+    "globals": "^17.2.0",
     "nodemon": "^3.1.11"
   },
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^5.2.1"
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "mongoose": "^9.1.4"
   }
 }
